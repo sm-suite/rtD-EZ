@@ -1,11 +1,6 @@
 # rtD-EZ v1.2
 Real-time Derivative-EZ model. ©2020 Jerold Larson. All Rights Reserved.
 
-
-
-Visualize offsetting option positions
--
-<br><br>
 Install Requirements, Execute mainEZ.py
 -
 <br><br>
