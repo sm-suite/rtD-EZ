@@ -99,7 +99,7 @@ class MyWindow:
 
 
 	def overview(self):
-		from charts5 import overview
+		from ezChart import overview
 		overview()
 
 	def quit(self):
