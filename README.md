@@ -1,7 +1,7 @@
-# rtD-EZ v1.2
+# rtD-EZ v1.3
 Real-time Derivative-EZ model. ©2020 Jerold Larson. All Rights Reserved.
 
-Install Requirements, Execute mainEZ.py
+Install Requirements, Execute main.py
 -
 <br><br>
 
@@ -12,12 +12,15 @@ Adjust and update the GUI to manipulate the visual(s).
 <br><br>
 
 
-[<img src="https://smsuite.files.wordpress.com/2020/07/rtd-ez-v1_2.png?w=1024">](http://smsuite.files.wordpress.com/)
+[<img src="https://smsuite.files.wordpress.com/2020/07/rtdez_v13_gui.png">](http://smsuite.files.wordpress.com/)
 
 
 
 <br><br>
--
+
+[<img src="https://smsuite.files.wordpress.com/2020/07/rtdez_v13_og.png?w=1024">](http://smsuite.files.wordpress.com/)
+
+
 
 
 <br>
