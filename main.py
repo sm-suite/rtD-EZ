@@ -72,15 +72,15 @@ class MyWindow:
 		self.lbl6['font'] = myFont
 
 		#update buttons
-		butx = 327
+		butx = 300
 		self.btn1=Button(win, text='Update\nOver') #create button, add text
 		self.b1=Button(win, text='Update\nOver', width=9, height=7, bg='#FFFFFF', fg='blue', command=self.b1rez) #connect w/ command / format
-		self.b1['font'] = myFont
+		self.b1['font'] = myFontT
 		self.b1.place(x=butx, y=0) #spacing for buttons
 
 		self.btn2=Button(win, text='Update\nUnder')
 		self.b2=Button(win, text='Update\nUnder', width=9, height=7, bg='#FFFFFF', fg='blue', command=self.s1rez)
-		self.b2['font'] = myFont
+		self.b2['font'] = myFontT
 
 		self.b2.place(x=butx, y=150)
 
@@ -89,23 +89,23 @@ class MyWindow:
 		#visual button
 
 		self.btn3=Button(win, text='Display\nPosition\nVisual')
-		self.b3=Button(win, text='Display\nPosition\nVisual', width=9, height=14, bg='#FFFFFF', fg='#FF8000', relief='groove', command=self.position)
+		self.b3=Button(win, text='Display\nPosition\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.position)
 		self.b3['font'] = myFontT
-		self.b3.place(x=557, y=0)
+		self.b3.place(x=420, y=0)
 
 
 
 		#quit button
 		self.btn4=Button(win, text='Display\nRisk\nVisual')
-		self.b4=Button(win, text='Display\nRisk\nVisual', width=9, height=14, bg='#FFFFFF', fg='#FF8000', command=self.risk)
+		self.b4=Button(win, text='Display\nRisk\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.risk)
 		self.b4['font'] = myFontT
-		self.b4.place(x=437, y=0)
+		self.b4.place(x=420, y=150)
 
 		#quit button
 		self.btn5=Button(win, text='Quit')
 		self.b5=Button(win, text='Quit', width=6, height=10, bg='#FFFFFF', fg='#CC0000', activebackground='#CC0000', command=quit)
 		self.b5['font'] = myFont_q
-		self.b5.place(x=677, y=0)
+		self.b5.place(x=533, y=0)
 
 	def risk(self):
 		from chart import view6
@@ -143,7 +143,7 @@ class MyWindow:
 #GUI
 window=Tk() #initialize tcl/tk interpreter
 window.title('Real-Time Derivative-EZ v1.3')
-window.geometry("1100x300-1000-1000")
+window.geometry("950x300-1000-1000")
 try:	
 	logo=tk.PhotoImage(file="logo.png") 
 	w1=tk.Label(window, image=logo).pack(side="right")
