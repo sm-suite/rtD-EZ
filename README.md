@@ -5,7 +5,7 @@ Install Requirements, Execute main.py
 -
 <br><br>
 
-Adjust and update the GUI to manipulate the visual(s).
+Update 'Over' and 'Under' before displaying visual(s).
 -
 
 
