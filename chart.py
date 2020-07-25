@@ -3,7 +3,7 @@
 import matplotlib
 matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
-plt.style.use(['seaborn-dark'])
+plt.style.use(['ggplot'])
 plt.style.use(['seaborn-darkgrid'])
 
 import matplotlib.animation as animation
@@ -12,7 +12,7 @@ import time
 ro = lambda x : round(x, ndigits=2)
 
 
-
+#position
 def view9():
 	fig = plt.figure(figsize=(9, 12))
 	ax1, ax2 = fig.add_subplot(321), fig.add_subplot(322)
@@ -58,29 +58,32 @@ def view9():
 
 		Lrisk = [b1r, s1r]
 		Lret = [b1w, s1w]
-		LL = [b1r, b1w, s1r, s1w]
+		LL = [b1w, b1r, s1r, s1w]
 		LLabel = 'over-risk', 'over-return','under-risk', 'under-return'
 		labels='Over-Risk', 'Under-Risk'
 		for ax in [ax1, ax2, ax3, ax4, ax5, ax6]: ax.clear()
 
 		
 		ax1.clear()
-		ax1.bar('Under\nrisk', s1r, color='#FF0000')
-		ax1.bar('Over\nrisk', b1r, color='#009900')
-		ax1.bar('Under\nreturn', s1w, color='#FF0000')
-		ax1.bar('Over\nreturn', b1w, color='#009900')
+		ax1.bar('Under\nrisk', s1r, color='#9999FF')
+		ax1.bar('Over\nrisk', b1r, color='#FF8000')
+		ax1.bar('Under\nreturn', s1w, color='#9999FF')
+		ax1.bar('Over\nreturn', b1w, color='#FF8000')
 
 	
 
 		ax2.clear()
-		ax2.step(viz_rng, b1, color='#009900')
+		ax2.step(viz_rng, b1, color='#FF8000')
 		
-		ax2.step(viz_rng, s1, color='#FF0000')
+		ax2.step(viz_rng, s1, color='#9999FF')
 
 
 
 		ax3.clear()
-		ax3.pie(LL, labels=LLabel, colors=['#336600', '#99FF99', '#CC0000', '#FFCCCC'], autopct='%.0f%%')
+		if (b1r + b1w) > (s1r+s1w):
+			ax3.pie(LL, labels=LLabel, colors=['#336600', '#FF0505', '#FF9900', '#9999FF'], autopct='%.0f%%')
+		else:
+			ax3.pie(LL, labels=LLabel, colors=[ '#FF9900', '#9999FF', '#FF0505', '#336600'], autopct='%.0f%%')
 
 
 		ax4.clear()
@@ -130,8 +133,22 @@ def view9():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#risk
 def view6():
-	fig = plt.figure(figsize=(10, 7))
+	fig = plt.figure(figsize=(10, 6))
 	ax1, ax2 = fig.add_subplot(231), fig.add_subplot(232)
 	ax3, ax4 = fig.add_subplot(233), fig.add_subplot(234)
 	ax5, ax6 = fig.add_subplot(235), fig.add_subplot(236)
@@ -175,39 +192,43 @@ def view6():
 
 		Lrisk = [b1r, s1r]
 		Lret = [b1w, s1w]
-		LL = [b1r, b1w, s1r, s1w]
-		LLabel = 'over-risk', 'over-return','under-risk', 'under-return'
+		LL = [b1w, b1r, s1r, s1w]
+		LLabel = 'over-return', 'over-risk','under-risk', 'under-return'
 		labels='Over-Risk', 'Under-Risk'
 		for ax in [ax1, ax2, ax3, ax4, ax5, ax6]: ax.clear()
 
 
 		ax1.clear()
-		ax1.barh('Under\n $' + str(s1r), s1r, color='#FF0000')
-		ax1.barh('Over\n $' + str(b1r), b1r, color='#009900')
+		ax1.barh('Under\n $' + str(s1r), s1r, color='#9999FF')
+		ax1.barh('Over\n $' + str(b1r), b1r, color='#FF8000')
 
 
 		ax2.clear()
-		ax2.barh('Under\n $' + str(s1w), s1w, color='#FF0000')
-		ax2.barh('Over\n $' + str(b1w), b1w, color='#009900')
+		ax2.barh('Under\n $' + str(s1w), s1w, color='#9999FF')
+		ax2.barh('Over\n $' + str(b1w), b1w, color='#FF8000')
 
 		
 		ax3.clear()
-		ax3.barh('Under\nrisk', s1r, color='#FF0000')
-		ax3.barh('Over\nrisk', b1r, color='#009900')
-		ax3.barh('Under\nreturn', s1w, color='#FF0000')
-		ax3.barh('Over\nreturn', b1w, color='#009900')
+		ax3.barh('Under\nreturn', s1w, color='#9999FF')
+		ax3.barh('Over\nreturn', b1w, color='#FF8000')
+		ax3.barh('Under\nrisk', s1r, color='#9999FF')
+		ax3.barh('Over\nrisk', b1r, color='#FF8000')
+
 
 
 		ax4.clear()
-		ax4.pie(Lrisk, labels=['over-risk', 'under-risk'], colors=['#009900', '#FF0000'], autopct='%.0f%%')
+		ax4.pie(Lrisk, labels=['over-risk', 'under-risk'], colors=['#FF8000', '#9999FF'], autopct='%.0f%%')
 
 		
 		ax5.clear()
-		ax5.pie(Lret, labels=['over-return', 'under-return'], colors=['#009900', '#FF0000'], autopct='%.0f%%')
+		ax5.pie(Lret, labels=['over-return', 'under-return'], colors=['#FF8000', '#9999FF'], autopct='%.0f%%')
 
 
 		ax6.clear()
-		ax6.pie(LL, labels=LLabel, colors=['#336600', '#99FF99', '#CC0000', '#FFCCCC'], autopct='%.0f%%')
+		if (b1r + b1w) > (s1r+s1w):
+			ax6.pie(LL, labels=LLabel, colors=['#336600', '#FF0505', '#FF9900', '#9999FF'], autopct='%.0f%%')
+		else:
+			ax6.pie(LL, labels=LLabel, colors=[ '#FF9900', '#9999FF', '#FF0505', '#336600'], autopct='%.0f%%')
 
 
 		ax1.set_title("Risk($)", fontsize=12)
@@ -225,8 +246,3 @@ def view6():
 	plt.show()
 
 
-
-
-#view9()
-#overunder()
-#roi()
