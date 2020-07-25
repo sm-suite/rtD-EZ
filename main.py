@@ -18,12 +18,13 @@ class MyWindow:
 	def __init__(self, win):
 		#create labels 'lbl' and entry fields 't' for inputs 1-6
 
-		myFont = font.Font(size=18)
-		myFontT = font.Font(size=20)
-		myFont_q = font.Font(size=20)
+		myFont = font.Font(size=18, weight='bold')
+		myFontT = font.Font(size=20, weight='bold')
+		myFonTit = font.Font(size=24)
+		myFont_q = font.Font(size=28, weight='bold')
 
-		self.lblb=Label(win, text='Over', bg='blue', fg='white') #lbl1
-		self.lbls=Label(win, text='Under', bg='blue', fg='white') #lbl1
+		self.lblb=Label(win, text='Over', bg='#D6D6D6', fg='black') #lbl1
+		self.lbls=Label(win, text='Under', bg='#DEDEDE', fg='#000000') #lbl1
 
 
 		self.lbl1=Label(win, text='Risk') #lbl1
@@ -45,10 +46,10 @@ class MyWindow:
 		
 		#spacing for 6 lbl and 6 t.
 		self.lblb.place(x=label1x-15, y=5, height=40, width=80)
-		self.lblb['font']=myFontT
+		self.lblb['font']=myFonTit
 
 		self.lbls.place(x=label1x-15, y=label4y-45, height=40, width=80)
-		self.lbls['font']=myFontT
+		self.lbls['font']=myFonTit
 
 		self.lbl1.place(x=label1x, y=label1y)
 		self.lbl2.place(x=label1x, y=label1y+25)
@@ -71,49 +72,49 @@ class MyWindow:
 		self.lbl6['font'] = myFont
 
 		#update buttons
-		butx = 300
-		self.btn1=Button(win, text='Update\nBuy-Side') #create button, add text
-		self.b1=Button(win, text='Update\nBuy-Side', width=9, height=3, fg='green', command=self.b1rez) #connect w/ command / format
+		butx = 327
+		self.btn1=Button(win, text='Update\nOver') #create button, add text
+		self.b1=Button(win, text='Update\nOver', width=9, height=7, bg='#FFFFFF', fg='blue', command=self.b1rez) #connect w/ command / format
 		self.b1['font'] = myFont
-		self.b1.place(x=butx, y=52) #spacing for buttons
+		self.b1.place(x=butx, y=0) #spacing for buttons
 
-		self.btn2=Button(win, text='Update\nSell-Side')
-		self.b2=Button(win, text='Update\nSell-Side', width=9, height=3, fg='green', command=self.s1rez)
+		self.btn2=Button(win, text='Update\nUnder')
+		self.b2=Button(win, text='Update\nUnder', width=9, height=7, bg='#FFFFFF', fg='blue', command=self.s1rez)
 		self.b2['font'] = myFont
 
-		self.b2.place(x=butx, y=177)
+		self.b2.place(x=butx, y=150)
 
 
 
 		#visual button
 
-		self.btn3=Button(win, text='Position')
-		self.b3=Button(win, text='Position', width=6, height=3, fg='blue', command=self.position)
-		self.b3['font'] = myFont
-		self.b3.place(x=660, y=50)
+		self.btn3=Button(win, text='Display\nPosition\nVisual')
+		self.b3=Button(win, text='Display\nPosition\nVisual', width=9, height=14, bg='#FFFFFF', fg='#FF8000', relief='groove', command=self.position)
+		self.b3['font'] = myFontT
+		self.b3.place(x=557, y=0)
 
 
 
 		#quit button
-		self.btn4=Button(win, text='Risk')
-		self.b4=Button(win, text='Risk', width=6, height=3, fg='blue', command=self.risk)
-		self.b4['font'] = myFont
-		self.b4.place(x=560, y=50)
+		self.btn4=Button(win, text='Display\nRisk\nVisual')
+		self.b4=Button(win, text='Display\nRisk\nVisual', width=9, height=14, bg='#FFFFFF', fg='#FF8000', command=self.risk)
+		self.b4['font'] = myFontT
+		self.b4.place(x=437, y=0)
 
 		#quit button
 		self.btn5=Button(win, text='Quit')
-		self.b5=Button(win, text='Quit', width=9, height=2, bg='red', fg='red', command=quit)
-		self.b5['font'] = myFont
-		self.b5.place(x=585, y=200)
+		self.b5=Button(win, text='Quit', width=6, height=10, bg='#FFFFFF', fg='#CC0000', activebackground='#CC0000', command=quit)
+		self.b5['font'] = myFont_q
+		self.b5.place(x=677, y=0)
 
 	def risk(self):
-		from chartEZ import view6
+		from chart import view6
 		view6()
 
 
 
 	def position(self):
-		from chartEZ import view9
+		from chart import view9
 		view9()
 
 	def quit(self):
@@ -141,14 +142,14 @@ class MyWindow:
 
 #GUI
 window=Tk() #initialize tcl/tk interpreter
-window.title('Real-Time Derivative-EZ v1.2')
-window.geometry("800x300-1000-1000")
+window.title('Real-Time Derivative-EZ v1.3')
+window.geometry("1100x300-1000-1000")
 try:	
-	logo=tk.PhotoImage(file="logo2.png") 
+	logo=tk.PhotoImage(file="logo.png") 
 	w1=tk.Label(window, image=logo).pack(side="right")
 except:
 	label = Label(window)
-	label.img = PhotoImage(file="logo2.png")
+	label.img = PhotoImage(file="logo.png")
 	label.config(image=label.img)
 	label.pack()
 
