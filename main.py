@@ -11,7 +11,7 @@ import tkinter.font as font
 #range of values for the visual
 #viz_rng = np.arange(1.5,1.7,.02) #option range EUR/USD
 #viz_rng = np.arange(109,110,.05) #option range USD/JPY
-viz_rng = np.arange(35, 46, 1) #total points range NFL
+viz_rng = np.arange(5, 16, 1) #total points range MLB
 
 
 class MyWindow:
@@ -88,16 +88,16 @@ class MyWindow:
 
 		#visual button
 
-		self.btn3=Button(win, text='Display\nPosition\nVisual')
-		self.b3=Button(win, text='Display\nPosition\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.position)
+		self.btn3=Button(win, text='Display\nRisk\nVisual')
+		self.b3=Button(win, text='Display\nRisk\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.risk)
 		self.b3['font'] = myFontT
 		self.b3.place(x=420, y=0)
 
 
 
 		#quit button
-		self.btn4=Button(win, text='Display\nRisk\nVisual')
-		self.b4=Button(win, text='Display\nRisk\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.risk)
+		self.btn4=Button(win, text='Display\nScenario\nVisual')
+		self.b4=Button(win, text='Display\nScenario\nVisual', width=8, height=7, bg='#FFFFFF', fg='#FF8000', command=self.scenario)
 		self.b4['font'] = myFontT
 		self.b4.place(x=420, y=150)
 
@@ -107,24 +107,22 @@ class MyWindow:
 		self.b5['font'] = myFont_q
 		self.b5.place(x=533, y=0)
 
+	def scenario(self):
+		from chart import scene
+		scene()
+
+
+
 	def risk(self):
-		from chart import view6
-		view6()
-
-
-
-	def position(self):
-		from chart import view9
-		view9()
+		from chart import risk
+		risk()
 
 	def quit(self):
 		quit()
 
 	def b1rez(self):
 		b1r, b1o, b1stk=float(self.t1.get()), float(self.t2.get()), float(self.t3.get())
-		#if b1o > 0: b1oD = (abs(b1o/100) + 1) #american odds instead of decimal
-		#else: b1oD = (100/abs(b1o) + 1)
-		#b1w=float(b1r*(b1oD-1))
+
 		b1w=float(b1r*(b1o-1))
 		b1_rez = [b1w if n > abs(b1stk) else -b1r for n in viz_rng]
 		with open('b1results.txt', 'w') as f:
@@ -132,9 +130,7 @@ class MyWindow:
 
 	def s1rez(self):
 		s1r, s1o, s1stk=float(self.t4.get()), float(self.t5.get()), float(self.t6.get())
-		#if s1oD > 0: s1oD = (abs(s1o/100) + 1)
-		#else: s1oD = (100/abs(s1o) + 1)
-		#s1w=float(s1r*(s1oD-1))
+
 		s1w=float(s1r*(s1o-1))
 		s1_rez = [s1w if n < abs(s1stk) else -s1r for n in viz_rng]
 		with open('s1results.txt', 'w') as f:
@@ -142,7 +138,7 @@ class MyWindow:
 
 #GUI
 window=Tk() #initialize tcl/tk interpreter
-window.title('Real-Time Derivative-EZ v1.3')
+window.title('Real-Time Derivative-EZ v1.4')
 window.geometry("950x300-1000-1000")
 try:	
 	logo=tk.PhotoImage(file="logo.png") 
