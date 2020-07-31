@@ -12,7 +12,7 @@ Update 'Over' / 'Under' or 'Buy' / 'Sell' before displaying visual(s).
 <br><br>
 
 
-[<img src="https://smsuite.files.wordpress.com/2020/07/rtdez_v15_ex.png?w=1024">](http://smsuite.files.wordpress.com/)
+[<img src="https://z06fj1t488x1we392383d37y-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/rtD15og-1024x551.png">](http://smsuite.files.wordpress.com/)
 
 <br><br>
 
