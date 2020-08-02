@@ -9,7 +9,7 @@ Submit visual range, Quit PyQT5 GUI
 -
 <br><br>
 
-Execute Tkinter GUI with main.py
+Launch Tkinter GUI with main.py
 -
 <br><br>
 
