@@ -11,8 +11,6 @@ import time
 ro = lambda x : round(x, ndigits=2)
 
 
-
-
 #risk
 def position():
 	fig = plt.figure(figsize=(12.5, 5))
@@ -44,41 +42,23 @@ def position():
 		ww, wl, lw = ro(b1w+s1w), ro(b1w-s1r), ro(s1w-b1r)
 		wwr, wlr, lwr = ro((ww/trisk)*100), ro((wl/trisk)*100), ro((lw/trisk)*100)
 
-		Lout = [wwr, wlr, lwr]
-
-		ss = sum(Lout)
-
-		
-		if min(b1) < min(s1): prmin = int(round(min(b1), ndigits=0))
-		else: prmin = int(round(min(s1), ndigits=0))
-		if max(b1) < max(s1): prmax = int(round(max(b1), ndigits=0))
-		else: prmax = int(round(max(s1), ndigits=0))
-		
-
-		Lrisk = [b1r, s1r]
-		Lret = [b1w, s1w]
 		LL = [b1w, b1r, s1r, s1w]
 		LLabel = 'over-return', 'over-risk','under-risk', 'under-return'
 		labels='over-Risk', 'under-Risk'
+
 		for ax in [ax1, ax2, ax3]: ax.clear()
-
-
 		ax1.clear()
 		ax1.step(viz_rng, b1, color='#009900')
-
 		ax2.clear()
 		ax2.step(viz_rng, s1, color='#FF0000')
-		
 		ax3.clear()
 		ax3.step(viz_rng, net, color='yellow')
 
 		ax1.set_title("Over($)", fontsize=12)
 		ax2.set_title("Under($)", fontsize=12)
-
-
 		ax3.set_title("Net($)", fontsize=12)
-
 		for ax in [ax1, ax2, ax3]: ax.set_xlabel("Total Points")
+
 	fig.suptitle("Position Analysis", fontsize=16)
 	ani = animation.FuncAnimation(fig, AniOverview, interval=1000)
 	plt.show()
@@ -121,27 +101,17 @@ def scene():
 		for ax in [ax1, ax2]: ax.clear()
 		ax1.clear()
 		ax1.bar('WW\n $' + str(ww), ww, color='g')
-		if wl>lw:
-			ax1.bar('LW\n $' + str(lw), lw, color='r')
-			ax1.bar('WL\n $' + str(wl), wl, color='y')
-		else:
-			ax1.bar('WL\n $' + str(wl), wl, color='r')
-			ax1.bar('LW\n $' + str(lw), lw, color='y')
-
+		ax1.bar('LW\n $' + str(lw), lw, color='r')
+		ax1.bar('WL\n $' + str(wl), wl, color='y')
 		ax2.clear()
 		ax2.bar('WW\n %' + str(wwr), wwr, color='g')
-		if wl>lw:
-			ax2.bar('LW\n %' + str(lwr), lwr, color='r')
-			ax2.bar('WL\n %' + str(wlr), wlr, color='y')
-		else:
-			ax2.bar('WL\n %' + str(wlr), wlr, color='r')
-			ax2.bar('LW\n %' + str(lwr), lwr, color='y')
+		ax2.bar('LW\n %' + str(lwr), lwr, color='r')
+		ax2.bar('WL\n %' + str(wlr), wlr, color='y')
 
 		ax1.set_xlabel('Outcome ($)', fontsize=14)
 		ax2.set_xlabel('ROI (%)', fontsize=14)
 
 	fig.suptitle("Scenario Analysis", fontsize=16)
-
 	ani = animation.FuncAnimation(fig, AniOverview, interval=1000)
 	plt.show()
 
@@ -180,52 +150,26 @@ def risk():
 		ww, wl, lw = ro(b1w+s1w), ro(b1w-s1r), ro(s1w-b1r)
 		wwr, wlr, lwr = ro((ww/trisk)*100), ro((wl/trisk)*100), ro((lw/trisk)*100)
 
-		Lout = [wwr, wlr, lwr]
-
-		ss = sum(Lout)
-
-		
-		if min(b1) < min(s1): prmin = int(round(min(b1), ndigits=0))
-		else: prmin = int(round(min(s1), ndigits=0))
-		if max(b1) < max(s1): prmax = int(round(max(b1), ndigits=0))
-		else: prmax = int(round(max(s1), ndigits=0))
-		
-
-		Lrisk = [b1r, s1r]
-		Lret = [b1w, s1w]
 		LL = [b1w, b1r, s1r, s1w]
 		LLabel = 'over-return', 'over-risk','under-risk', 'under-return'
 		labels='over-Risk', 'under-Risk'
+
 		for ax in [ax1, ax2, ax3]: ax.clear()
-
-
 		ax1.clear()
 		ax1.barh('under\n $' + str(s1r), s1r, color='#9999FF')
 		ax1.barh('over\n $' + str(b1r), b1r, color='#FF8000')
-
-
 		ax2.clear()
 		ax2.barh('under\n $' + str(s1w), s1w, color='#9999FF')
 		ax2.barh('over\n $' + str(b1w), b1w, color='#FF8000')
-
-
 		ax3.clear()
-		if (b1r + b1w) > (s1r+s1w):
-			ax3.pie(LL, labels=LLabel, colors=['#336600', '#FF0505', '#FF9900', '#9999FF'], autopct='%.0f%%')
-		else:
-			ax3.pie(LL, labels=LLabel, colors=[ '#FF9900', '#9999FF', '#FF0505', '#336600'], autopct='%.0f%%')
+		if (b1r + b1w) > (s1r+s1w): ax3.pie(LL, labels=LLabel, colors=['#336600', '#FF0505', '#FF9900', '#9999FF'], autopct='%.0f%%')
+		else: ax3.pie(LL, labels=LLabel, colors=[ '#FF9900', '#9999FF', '#FF0505', '#336600'], autopct='%.0f%%')
 
+		ax1.set_xlabel("Risk($)", fontsize=14)
+		ax2.set_xlabel("Return($)", fontsize=14)
+		ax3.set_xlabel("Relative Risk/Return", fontsize=14)
 
-		ax1.set_title("Risk($)", fontsize=12)
-		ax2.set_title("Return($)", fontsize=12)
-
-
-		ax3.set_title("Risk/Return($)", fontsize=12)
-
-		ax1.set_xlabel("Risk($)")
-		ax2.set_xlabel("Return($)")
-
-	fig.suptitle("Risk Analysis", fontsize=16)
+	fig.suptitle("Risk Analysis\n\n", fontsize=18)
 	ani = animation.FuncAnimation(fig, AniOverview, interval=1000)
 	plt.show()
 
