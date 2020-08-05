@@ -1,15 +1,15 @@
 # rtD-EZ v1.5.1
-Real-time Derivative-EZ model. ©2020 Jerold Larson. All Rights Reserved.
+Real-time Derivative-EZ model.<br>©2020 Jerold Larson. All Rights Reserved.
 
-Install Requirements, Execute pre-main.py
+Install requirements, Execute pre-main.py
 -
 <br><br>
 
-Submit visual range, Quit PyQT5 GUI
+Submit visual range, Quit pre-main GUI
 -
 <br><br>
 
-Launch Tkinter GUI with main.py
+Launch main GUI with main.py
 -
 <br><br>
 
