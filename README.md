@@ -22,8 +22,8 @@ Update 'Over' / 'Under' or 'Buy' / 'Sell' before displaying visual(s).
 <br><br>
 
 
-[<img src="https://z06fj1t488x1we392383d37y-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/rtD15og-1024x551.png">](http://smsuite.files.wordpress.com/)
-image of rtD v1.5
+[<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://smsuite-fx.com/wp-content/uploads/2020/08/v15og_rsz.webp">](http://smsuite-fx.com/rtd151/)
+image of rtD v1.5.1
 <br><br>
 
 ©2020 Jerold Larson. All Rights Reserved.
