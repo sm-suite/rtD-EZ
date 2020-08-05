@@ -22,9 +22,13 @@ Update 'Over' / 'Under' or 'Buy' / 'Sell' before displaying visual(s).
 <br><br>
 
 
-[<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://smsuite-fx.com/wp-content/uploads/2020/08/v15og_rsz.webp">](http://smsuite-fx.com/rtd151/)
+[<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://smsuite-fx.com/wp-content/uploads/2020/08/v151_under.webp">](http://smsuite-fx.com/rtd151/)
 image of rtD v1.5.1
 <br><br>
+
+Updating the GUI will automatically adjust visual(s).
+-
+
 
 ©2020 Jerold Larson. All Rights Reserved.
 <br>
