@@ -26,7 +26,7 @@ Update 'Over' / 'Under' or 'Buy' / 'Sell' before displaying visual(s).
 image of rtD v1.5.1
 <br><br>
 
-Updating the GUI will automatically adjust visual(s).
+Updating the GUI will automatically adjust any visual(s).
 -
 
 
