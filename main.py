@@ -1,6 +1,5 @@
 #©2020 Jerold B. Larson. All Rights Reserved.
 
-
 import sys
 from tkinter import *
 import tkinter as tk
@@ -18,7 +17,6 @@ for eachLine in dataArray:
 	if len(eachLine)>1:
 		x,y = eachLine.split(',')
 		viz_rng.append(float(x))
-
 
 #viz_rng = np.arange(1.5,1.7,.02) #option range EUR/USD
 #viz_rng = np.arange(109,110,.05) #option range USD/JPY
@@ -108,8 +106,6 @@ class MyWindow:
 			self.b2['font'] = myFontT
 			self.b2.place(x=butx, y=147)
 
-
-
 		elif dType == 'tp':
 
 			self.btn1=Button(win, text='Update\nOver\n') #create button, add text
@@ -138,8 +134,6 @@ class MyWindow:
 		self.b5.place(x=400, y=197)
 
 
-
-
 		#quit button
 		self.btn7=Button(win, text='Quit')
 		self.b7=Button(win, text='Quit', width=5, height=10, bg='#FFFFFF', fg='#CC0000', activebackground='#CC0000', command=quit)
@@ -148,16 +142,21 @@ class MyWindow:
 
 
 	def scenario(self):
-		from chart import scene
+		if dType=='tp': from chart import scene
+		elif dType=='fx': from fx_chart import scene
 		scene()
 
+
 	def risk(self):
-		from chart import risk
+		if dType=='tp': from chart import risk
+		elif dType=='fx': from fx_chart import risk
 		risk()
 
-	def pos(self):		
-		from chart import pos
-		pos()
+
+	def pos(self):
+		if dType=='tp': from chart import position
+		elif dType=='fx': from fx_chart import pos
+		position()
 
 
 	def quit(self):
@@ -185,7 +184,7 @@ class MyWindow:
 			s1sz, s1p, s1stk=float(self.t4.get()), float(self.t5.get()), float(self.t6.get())
 			s1r= float((100-s1p)*s1sz)
 			s1w= float(s1p*(s1sz))
-		s1_rez = [s1w if n < abs(s1stk) else -s1r for n in viz_rng]
+		s1_rez = [s1w if n <= abs(s1stk) else -s1r for n in viz_rng]
 		with open('s1results.txt', 'w') as f:
 			for n in range(0,len(viz_rng)): print(viz_rng[n], ',', s1_rez[n], file=f)
 
@@ -195,9 +194,13 @@ class MyWindow:
 window=Tk() #initialize tcl/tk interpreter
 window.title('Real-Time Derivative-EZ v1.5.1')
 window.geometry("650x300-1000-1000")
-window['bg']='#636363'
+window['bg']='#000000'
+
+
 
 mywin=MyWindow(window) #link MyWindow class and tk interpretter
+
+
 
 window.mainloop() #execute infinite loop
 
