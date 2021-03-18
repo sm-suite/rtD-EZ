@@ -3,13 +3,8 @@ Real-time Derivative-EZ model.<br>©2020 Jerold Larson. All Rights Reserved.
 
 Install requirements, Execute pre-main.py
 -
-<br><br>
 
-Submit visual range, Quit pre-main GUI
--
-<br><br>
-
-Launch main GUI with main.py
+Launch main.py
 -
 <br><br>
 
@@ -21,10 +16,6 @@ Update 'Over' / 'Under' or 'Buy' / 'Sell' before displaying visual(s).
 
 <br><br>
 
-
-[<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://smsuite-fx.com/wp-content/uploads/2020/08/v151_under-1.webp">](http://smsuite-fx.com/rtd151/)
-image of rtD v1.5.1
-<br><br>
 
 Updating the GUI will automatically adjust any visual(s).
 -
