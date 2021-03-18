@@ -1,5 +1,5 @@
 # rtD-EZ v1.5.1
-Real-time Derivative-EZ model.<br>©2020 Jerold Larson. All Rights Reserved.
+Real-time Derivative-EZ model.<br>©2021 Jerold Larson. All Rights Reserved.
 
 Install requirements, Execute pre-main.py
 -
@@ -21,5 +21,5 @@ Updating the GUI will automatically adjust any visual(s).
 -
 
 
-©2020 Jerold Larson. All Rights Reserved.
+©2021 Jerold Larson. All Rights Reserved.
 <br>
